@@ -1,0 +1,25 @@
+{
+   "name":"commando",
+   "description":"cli microframework: get in, get out",
+   "version":"0.0.1",
+   "homepage":"http://github.com/wearefractal/commando",
+   "repository":"git://github.com/wearefractal/commando",
+   "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
+   "main":"./lib/client.coffee",
+
+   "dependencies":{
+      "coffee-script":"*",
+      "colors":"*",
+      "protege":"*"
+   },
+   "engines":{
+      "node":">= 0.4.0"
+   },
+   "licenses":[
+      {
+         "type":"MIT",
+         "url":"http://github.com/wearefractal/commando/raw/master/LICENSE"
+      }
+   ]
+}
+
