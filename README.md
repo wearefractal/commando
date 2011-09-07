@@ -16,15 +16,38 @@ To install `commando` use [npm](http://github.com/isaacs/npm):
 
 ### Usage
 
+To create a new `commando` app:
+
     $ commando create appName
 
-will create a new `commando` app in a dir called "appName" in the current working dir
-create your commands in /commands and then simple `npm publish` from the root of "appName"
+`commando` scaffolds out your app, creating & auto-populating package.json, README.MD etc. 
+based on [npm-boilerplate](https://github.com/wearefractal/npm-boilerplate) but takes it a step further by 
+auto-populating your package.json and docs with your app name and git user info.
+
+Simply create your commands in `appName/commands` and `npm publish` from the root of `appName/` to publish your cli app to npm
 
 ### Structure
 
 A `commando` app consists of **commands** - single coffeescript files or folders that contain sub-commands 
 
+    appName/
+    
+      commands/     # contains commands
+        help.coffee # here by default
+     
+      lib/          # contains commando-specific files
+      
+      CHANGELOG.md
+      LICENSE       # MIT by default
+      README.md     # generated based on git & app info
+      sig           # the sig or heading of your app (usually ascii art)
+      TODO.md
+      package.json  # generated based on git & app info
+
+
+### Resources
+
+[ascii art text generator](http://www.network-science.de/ascii/) for your sig
 
 ### Contributors
 
