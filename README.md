@@ -10,7 +10,7 @@
 ```
 ### Installation
 
-To install `commando`, use [npm](http://github.com/isaacs/npm):
+To install `commando` use [npm](http://github.com/isaacs/npm):
 
     $ npm install -g commando
 
@@ -18,15 +18,20 @@ To install `commando`, use [npm](http://github.com/isaacs/npm):
 
     $ commando create appName
 
+will create a new `commando` app in a dir called "appName" in the current working dir
+create your commands in /commands and then simple `npm publish` from the root of "appName"
+
 ### Structure
 
+A `commando` app consists of **commands** - single coffeescript files or folders that contain sub-commands 
 
-## Contributors
+
+### Contributors
 
 - [amurray](https://github.com/amurray)
 - [contra](https://github.com/contra) for [npm-boilerplate](https://github.com/wearefractal/npm-boilerplate)
 
-## LICENSE
+### LICENSE
 
 (MIT License)
 
