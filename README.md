@@ -8,22 +8,23 @@
        \
 
 ```
-## Installation
+### Installation
 
 To install `commando`, use [npm](http://github.com/isaacs/npm):
 
     $ npm install -g commando
 
-## Usage
+### Usage
 
+    $ commando create appName
 
-
-## Examples
+### Structure
 
 
 ## Contributors
 
 - [amurray](https://github.com/amurray)
+- [contra](https://github.com/contra) for [npm-boilerplate](https://github.com/wearefractal/npm-boilerplate)
 
 ## LICENSE
 
