@@ -1,5 +1,6 @@
 #!/usr/bin/env coffee
 
+require "coffee-script"
 require "../lib/CMD"
 
 ## set paths

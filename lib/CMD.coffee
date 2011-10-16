@@ -5,7 +5,7 @@
 ## requires
 
 path = require 'path'
-logger = require "./logger"
+logger = require "node-log"
 
 module.exports =
 

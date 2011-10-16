@@ -5,12 +5,13 @@
    "homepage":"http://github.com/wearefractal/commando",
    "repository":"git://github.com/wearefractal/commando",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
-   "bin":"./lib/commando.coffee",
+   "bin":"./bin/cli.coffee",
 
    "dependencies":{
       "coffee-script":"*",
       "colors":"*",
-      "protege":"*"
+      "protege":"*",
+      "node-log":"*"
    },
    "engines":{
       "node":">= 0.4.0"

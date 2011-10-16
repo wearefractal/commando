@@ -1,8 +1,6 @@
 ##
-## $ commander create appName
+## $ commander create "appName"
 ##
-
-## requires
 
 fs = require 'fs'
 path = require 'path'
@@ -13,7 +11,7 @@ exports.exe = (args) ->
 	## map args
 
 	[appName] = args
-	appPath = "./" + appName
+	appPath = './' + appName
 
 	## check if a folder with appName exists
 
