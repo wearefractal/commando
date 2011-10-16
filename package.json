@@ -5,7 +5,7 @@
    "homepage":"http://github.com/wearefractal/commando",
    "repository":"git://github.com/wearefractal/commando",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
-   "main":"./lib/client.coffee",
+   "bin":"./lib/commando.coffee",
 
    "dependencies":{
       "coffee-script":"*",
