@@ -6,7 +6,7 @@
    "repository":"git://github.com/GITHUB_PATH/APP",
    "author":"USER <USER_EMAIL> (USER_WEB)",
    "bin":{
-     "MAINAPPCOMMAND":"./bin/cli.coffee",
+     "MAINAPPCOMMAND":"./bin/cli.coffee"
    },
    "dependencies":{
       "commando":"*"
