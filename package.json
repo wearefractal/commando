@@ -7,7 +7,7 @@
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
    "preferGlobal":true,
    "bin":{
-      "commando":"./bin/cli.coffee"
+      "commando":"./bin/cli"
    },
    "dependencies":{
       "coffee-script":"*",
@@ -23,4 +23,4 @@
          "url":"http://github.com/wearefractal/commando/raw/master/LICENSE"
       }
    ]
-}
+}		
