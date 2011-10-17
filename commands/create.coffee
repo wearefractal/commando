@@ -18,7 +18,7 @@ exports.exe = (CMD, args) ->
   
   path.exists appPath, (exists) ->
    
-    if exists?
+    if exists
       CMD.log "Error: dir '#{appName} already exists".red
     else
       exec "cp -R #{CMD.paths.lib}template/ #{appPath}", (error, stdout, stderr) ->
