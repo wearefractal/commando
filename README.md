@@ -28,7 +28,7 @@ Simply create your commands in `appName/commands` and `npm publish` from the roo
 
 ### Structure
 
-A `commando` app consists of **commands** - single coffeescript files or folders that contain sub-commands 
+A `commando` app consists of **commands** - single files or folders that contain sub-commands 
 
     appName/
     
@@ -48,11 +48,6 @@ A `commando` app consists of **commands** - single coffeescript files or folders
 ### Resources
 
 [ascii art text generator](http://www.network-science.de/ascii/) for your sig
-
-### Contributors
-
-- [amurray](https://github.com/amurray)
-- [contra](https://github.com/contra) for [npm-boilerplate](https://github.com/wearefractal/npm-boilerplate)
 
 ### LICENSE
 

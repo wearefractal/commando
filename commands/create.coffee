@@ -1,29 +1,47 @@
-##
-## $ commando create "appName"
-##
-
 fs = require 'fs'
 path = require 'path'
 exec = require('child_process').exec
+log = require 'node-log'
+async = require 'async'
 
-exports.exe = (CMD, args) -> 
-
-  ## map args ## CHANGE
-  [appName] = args
-  appPath = './' + appName
-
-  ## create app dir 
-
-  CMD.log "Creating app '#{appName}'...".green
-  
-  path.exists appPath, (exists) ->
-   
-    if exists
-      CMD.log "Error: dir '#{appName} already exists".red
-    else
-      exec "cp -R #{CMD.paths.lib}template/ #{appPath}", (error, stdout, stderr) ->
-        if error?
-          CMD.log error 
+cloneDirectory = (dir, newdir, cb) ->
+    clone = (file, call) ->
+      oldf = path.join dir, file
+      newf = path.join newdir, file
+      fs.stat oldf, (err, stat) ->
+        if stat.isDirectory()
+          cloneDirectory oldf, newf, call
         else
-          CMD.log "'#{appName}' created".green
+          fs.readFile oldf, (err, data) ->
+            fs.writeFile newf, data, (err) ->
+              call()
+
+    copyAll = (call) -> 
+      fs.readdir dir, (err, files) -> 
+        async.forEach files, clone, call
+        
+    path.exists newdir, (exists) ->
+      if exists
+        copyAll cb
+      else
+        fs.mkdir newdir, 0755, (err) -> copyAll cb
+          
+exports.exe = (cmd, args) -> 
+  appName = args[0]
+  unless appName 
+    log.error "Missing appName parameter"
+  else
+    log.info "Creating #{ appName }..."
+    appPath = path.join process.cwd(), appName
+    template = path.join __dirname, '../template'
+    commandoBin = path.join __dirname, '../bin'
+    appBin = path.join appPath, path.basename(commandoBin)
+    console.log appBin
+    exists = path.existsSync appPath
+    if exists
+      return log.error "#{ appPath } already exists"
+    else
+      cloneDirectory template, appPath, ->
+        cloneDirectory commandoBin, appBin, ->
+          log.info "Creation of #{ appName } completed"
 

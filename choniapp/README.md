@@ -14,9 +14,6 @@ To install `{APP}`, use [npm](http://github.com/isaacs/npm):
 ## Examples
 
 
-## Contributors
-
-- [{USER}](https://github.com/{USER})
 
 ## LICENSE
 
