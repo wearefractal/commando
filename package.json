@@ -7,7 +7,7 @@
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
    "preferGlobal":true,
    "bin":{
-      "commando":"./bin/cli"
+      "commando":"./bin/cli.coffee"
    },
    "dependencies":{
       "coffee-script":"*",

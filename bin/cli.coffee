@@ -1,8 +1,6 @@
-#!/usr/bin/env node
-require('coffee-script');
+#!/usr/bin/env coffee
 path = require 'path'
 fs = require 'fs'
-log = require 'node-log'
 commando = {}
 
 # Parse process args to command name and command arguments
@@ -27,14 +25,14 @@ defaultHelp = (commandPath, args) ->
     files = fs.readdirSync commandPath
     if files
       commands = (path.basename(x, path.extname(x)) for x in files)
-      log.info 'Available Commands:'
-      log.info('    ' + command) for command in commands
+      console.log 'Available Commands:'
+      console.log('  - ' + command) for command in commands
     else
-      log.error 'No commands found.'
+      console.log 'No commands found.'
       
 commandExists = (commandPath, command) -> 
-  exists = path.existsSync path.join(commandPath, command + '.js')
-  exists or= path.existsSync path.join(commandPath, command + '.coffee')
+  exists = path.existsSync path.join commandPath, command + '.js'
+  exists or= path.existsSync path.join commandPath, command + '.coffee'
   return exists
     
 parse()
