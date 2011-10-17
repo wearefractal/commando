@@ -1,5 +1,5 @@
 ##
-## $ commander create "appName"
+## $ commando create "appName"
 ##
 
 fs = require 'fs'
