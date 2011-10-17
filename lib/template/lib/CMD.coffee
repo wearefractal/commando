@@ -5,110 +5,88 @@
 ## requires
 
 path = require 'path'
-logger = require "./logger"
+logger = require "node-log"
 
-module.exports =
+module.exports = CMD = 
 
-global.CMD = {
+  ##
+  ## CONFIG
+  ##
 
-##
-## CONFIG
-##
+  config: require './config'
 
-config: require './config'
+  ##
+  ## PATHS
+  ##
 
-##
-## PATHS
-##
+  paths: {}
 
-paths: {}
+  ##
+  ## INFRA
+  ##
 
-setPaths: (dir) ->
-	@paths.root = path.normalize dir + '/../'
-	@paths.lib = @paths.root + 'lib/'
-	@paths.commands = @paths.root + 'commands/'
+  ## logging
 
-##
-## INFRA
-##
+  log: (msg) ->
+	  logger.log msg
 
-#CommandStack: ->
-#	console.log require('./CommandStacks')
+  error: (args) ->
+	  logger.error args
 
-## logging
+  ##
+  ## parse ->
+  ##
+  ## parses command line input and maps to cli commands
+  ##
 
-log: (msg) ->
-	logger.log msg
+  parse: (dir) ->
 
-error: (args) ->
-	logger.error args
+	  @paths.root = path.normalize dir + '/../'
+	  @paths.lib = @paths.root + 'lib/'
+	  @paths.commands = @paths.root + 'commands/'
 
+	  ## process args
 
-#######################################################
+	  args = process.argv.slice(0)
 
+	  ## shift off node and script name
 
-##
-## parse ->
-##
-## parses command line input and maps to cli commands
-##
+	  args.shift(); args.shift();
 
-parse: (args) ->
+	  ## parse commands
 
-	## process args
+	  @parseCommands args
 
-	args = process.argv.slice(0)
+  ##
+  ## parseCommands (args) ->
+  ##
 
-	## shift off node and script name
+  parseCommands: (args) ->
 
-	args.shift(); args.shift();
+	  ## command
 
-	## parse commands
+	  [command] = args
 
-	@parseCommands args
+	  ## shift off command
 
-##
-## parseCommands (args) ->
-##
+	  args.shift()
 
-parseCommands: (args) ->
+	  ##
+	  ## process command
+	  ##
 
-	## command
+	  ## target command path
 
-	[command] = args
+	  commandPath = @paths.commands + command + '.coffee'
 
-	## shift off command
+	  ## check if command path exists
 
-	args.shift()
+	  path.exists commandPath, (exists) ->
 
-	##
-	## process command
-	##
-
-	## target command path
-
-	commandPath = @paths.commands + command + '.coffee'
-
-	## check if command path exists
-
-	path.exists commandPath, (exists) ->
-
-		if exists
-			command = require commandPath
-			command.exe args
-		else
-			#require @paths.commands + "help".exe
-			console.log 'help'
-
-##
-## help
-##
-
-help: (args) ->
-
-	console.log 'help'
-
-
-
-}
+		  if exists
+			  command = require commandPath
+			  command.exe CMD, args
+		  else
+			  #require @paths.commands + "help".exe
+			  console.log 'help'
 

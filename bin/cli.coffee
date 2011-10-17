@@ -1,13 +1,9 @@
 #!/usr/bin/env coffee
 
 require "coffee-script"
-require "../lib/CMD"
-
-## set paths
-
-CMD.setPaths __dirname
+CMD = require "../lib/CMD"
 
 ## parse
 
-CMD.parse()
+CMD.parse(__dirname)
 
