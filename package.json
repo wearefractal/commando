@@ -5,8 +5,10 @@
    "homepage":"http://github.com/wearefractal/commando",
    "repository":"git://github.com/wearefractal/commando",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
-   "bin":"./bin/cli.coffee",
-
+   "preferGlobal":true,
+   "bin":{
+      "commando":"./bin/cli.coffee"
+   },
    "dependencies":{
       "coffee-script":"*",
       "node-log":"*",
@@ -22,4 +24,3 @@
       }
    ]
 }
-
