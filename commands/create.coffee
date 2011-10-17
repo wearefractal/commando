@@ -28,5 +28,5 @@ exports.exe = (args) ->
 
 			## clone npm-boilerplate into a new app dir
 
-			exec "git clone git@github.com:wearefractal/npm-boilerplate.git #{appPath}", CMD.log(arguments)
+			exec "git clone git@github.com:wearefractal/commando-template.git #{appPath}"
 
