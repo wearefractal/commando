@@ -8,7 +8,7 @@
    "main":"./bin/cli.coffee",
 
    "dependencies":{
-      "commando":"*",
+      "commando":"*"
    },
    "engines":{
       "node":">= 0.4.0"
