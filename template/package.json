@@ -5,8 +5,9 @@
    "homepage":"http://github.com/GITHUB_PATH/APP",
    "repository":"git://github.com/GITHUB_PATH/APP",
    "author":"USER <USER_EMAIL> (USER_WEB)",
-   "main":"./bin/cli.coffee",
-
+   "bin":{
+     "MAINAPPCOMMAND":"./bin/cli.coffee",
+   },
    "dependencies":{
       "commando":"*"
    },
