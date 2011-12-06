@@ -1,7 +1,7 @@
 {
    "name":"commando",
    "description":"CLI Microframework",
-   "version":"0.0.1",
+   "version":"0.0.2",
    "homepage":"http://github.com/wearefractal/commando",
    "repository":"git://github.com/wearefractal/commando",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
