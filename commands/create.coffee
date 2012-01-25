@@ -1,13 +1,13 @@
-fs = require 'fs'
-path = require 'path'
-exec = require('child_process').exec
-log = require 'node-log'
+fs    = require 'fs'
+path  = require 'path'
+exec  = require('child_process').exec
+log   = require 'node-log'
 async = require 'async'
 
 cloneDirectory = (dir, newdir, cb) ->
     clone = (file, call) ->
-      oldf = path.join dir, file
-      newf = path.join newdir, file
+      oldf  = path.join dir, file
+      newf  = path.join newdir, file
       fs.stat oldf, (err, stat) ->
         if stat.isDirectory()
           cloneDirectory oldf, newf, call
@@ -32,12 +32,12 @@ exports.exe = (cmd, args) ->
     log.error "Missing appName parameter"
   else
     log.info "Creating #{ appName }..."
-    appPath = path.join process.cwd(), appName
-    template = path.join __dirname, '../template'
+    appPath     = path.join process.cwd(), appName
+    template    = path.join __dirname, '../template'
     commandoBin = path.join __dirname, '../bin'
-    appBin = path.join appPath, path.basename(commandoBin)
+    appBin      = path.join appPath, path.basename(commandoBin)
     console.log appBin
-    exists = path.existsSync appPath
+    exists      = path.existsSync appPath
     if exists
       return log.error "#{ appPath } already exists"
     else
