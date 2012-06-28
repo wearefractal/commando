@@ -37,7 +37,7 @@ exports.exe = (cmd, args) ->
     commandoBin = path.join __dirname, '../bin'
     appBin = path.join appPath, path.basename(commandoBin)
     console.log appBin
-    exists = path.existsSync appPath
+    exists = fs.existsSync appPath
     if exists
       return log.error "#{ appPath } already exists"
     else
