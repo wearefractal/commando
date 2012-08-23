@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/wearefractal/commando.png)](http://travis-ci.org/wearefractal/commando)
 ```                                                        
                                                             _       
                                                            | |      
